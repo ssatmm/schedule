@@ -84,7 +84,7 @@ app.get("/new", ensureAuthenticated(), (c) => {
 
 app.post("/", ensureAuthenticated(), scheduleFormValidator, async (c) => {
   const { user } = c.get("session") ?? {};
-  const body = await c.valid('form');
+  const body = c.req.valid('form');
 
   // 予定を登録
   const { scheduleId } = await prisma.schedule.create({
