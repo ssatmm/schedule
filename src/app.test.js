@@ -260,7 +260,7 @@ describe('/schedules/:scheduleId/update', () => {
     expect(schedule.scheduleName).toBe('テスト更新予定2');
     expect(schedule.memo).toBe('テスト更新メモ2');
 
-    const candidates = await prisma.candidate.finedMany({
+    const candidates = await prisma.candidate.findMany({
       where: { scheduleId },
       orderBy: { candidateId: 'asc' },
     });
